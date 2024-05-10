@@ -1,0 +1,40 @@
+package com.pbl3.model;
+
+import java.sql.Time;
+
+public class Images {
+	private String imagesID;
+	private String productID;
+	private String imagesPath;
+	
+	public String getCommentID() {
+		return commentID;
+	}
+	public void setCommentID(String commentID) {
+		this.commentID = commentID;
+	}
+	public String getUserID() {
+		return userID;
+	}
+	public void setUserID(String userID) {
+		this.userID = userID;
+	}
+	public String getProductID() {
+		return productID;
+	}
+	public void setProductID(String productID) {
+		this.productID = productID;
+	}
+	public String getContent() {
+		return Content;
+	}
+	public void setContent(String content) {
+		Content = content;
+	}
+	public Time getCreateAt() {
+		return createAt;
+	}
+	public void setCreateAt(Time createAt) {
+		this.createAt = createAt;
+	}
+}

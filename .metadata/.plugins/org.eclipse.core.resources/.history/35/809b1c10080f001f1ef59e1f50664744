@@ -1,0 +1,38 @@
+package com.pbl3.service;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import com.pbl3.model.Product;
+import com.pbl3.model.User;
+
+public class ProductService extends BaseService{
+	public static ArrayList<User> query(String keywordString){
+		String sql = "SELECT * FROM product";
+		ArrayList<Product> products = new ArrayList<Product>();
+		try {
+			Connection connection = getConnection();
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				String userID = rs.getString("userID");
+				int roleID = rs.getInt("roleID");
+				String userName = rs.getString("userName");
+				String Password = rs.getString("Password"); 
+				String Name = rs.getString("Name"); 
+				String Address = rs.getString("Address");
+				String phoneNumber = rs.getString("phoneNumber"); 
+				Date dateOfBirth = rs.getDate("dateOfBirth");
+				User user = new User(userID, roleID, userName, Password, Name, Address, phoneNumber, dateOfBirth);
+				users.add(user);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return users;
+	}
+}

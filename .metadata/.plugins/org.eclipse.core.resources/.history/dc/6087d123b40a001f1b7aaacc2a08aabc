@@ -1,0 +1,34 @@
+package niit.session;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+@WebServlet(urlPatterns = {"/visit-session"})
+public class VisitSession extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		int visitTime = 0;
+		
+		HttpSession session = req.getSession();
+		if(session.getAttribute("visitTime") != null) {
+			visitTime = Integer.parseInt(session.getAttribute("visitTime").toString()) ;
+			System.out.println(visitTime);
+//			visitTime = Integer.parseInt(session.getAttribute("visitTime").toString());
+		}
+		visitTime++;	
+
+		session.setAttribute("visitTime", session);
+		
+		resp.setContentType("text/html");
+		PrintWriter printWriter = resp.getWriter();
+		printWriter.write("<p>Bạn đã truy cập " + visitTime + " lần </p>");
+	}
+}

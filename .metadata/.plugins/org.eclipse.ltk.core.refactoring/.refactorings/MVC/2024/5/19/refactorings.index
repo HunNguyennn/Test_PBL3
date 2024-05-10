@@ -1,0 +1,45 @@
+1714906774773	Rename resource 'view'
+1714906856557	Rename package 'com.pbl3.view'
+1715094168193	Move 'views' to 'webapp'
+1715094200099	Delete element
+1715094728009	Move 'PBL3-FeelnChill-view' to 'views'
+1715094961745	Delete element
+1715095989807	Rename type 'images'
+1715096560913	Rename type 'product'
+1715099230993	Rename type 'ConnectionService'
+1715102003098	Rename resource 'Homepage.jsp'
+1715103823455	Rename resource 'customer-css'
+1715104385957	Copy file
+1715104391222	Copy file
+1715104856253	Move 'css' to 'assets'
+1715104862289	Move 'js' to 'assets'
+1715104893833	Delete element
+1715105410043	Copy folder
+1715105592949	Move 3 resources to 'assets'
+1715105606336	Move 'main.css' to 'css'
+1715105608817	Move 'main.js' to 'js'
+1715106003460	Delete element
+1715107429849	Copy file
+1715107436230	Copy file
+1715107479491	Copy folder
+1715108177401	Delete element
+1715108866986	Copy folder
+1715110502941	Move 'homepage.jsp' to 'default'
+1715110506532	Move 'login.jsp' to 'default'
+1715110558395	Delete element
+1715110576079	Move 'main' to 'views'
+1715110603638	Delete element
+1715111492617	Move 'Data' to 'assets'
+1715246165705	Move 'Data' to 'webapp'
+1715246374978	Move 'homepage.jsp' to 'views'
+1715246378069	Move 'login.jsp' to 'views'
+1715246382325	Delete element
+1715246389632	Move 'login.jsp' to 'customer'
+1715246392199	Move 'homepage.jsp' to 'customer'
+1715247032870	Rename resource 'main.css'
+1715247125387	Rename resource 'main.js'
+1715248231884	Rename resource 'AddUser.jsp'
+1715361777782	Move folder
+1715362059720	Delete element
+1715362087848	Delete element
+1715363134123	Move 'WEB-INF' to 'webapp'

@@ -1,0 +1,13 @@
+package com.pbl3.controller.customer;
+
+import jakarta.servlet.http.HttpServlet;
+
+public class SearchProduct extends HttpServlet {
+	String keywordString = req.getParameter("keyword");
+	if(keywordString == null) {
+		keywordString = "";
+	}
+	ArrayList<User> users = AccountService.query(keywordString);
+	req.setAttribute("users", users);
+	
+}

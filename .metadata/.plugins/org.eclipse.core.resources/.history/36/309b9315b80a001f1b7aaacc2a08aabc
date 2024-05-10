@@ -1,0 +1,7 @@
+package niit.session;
+
+import jakarta.servlet.http.HttpServlet;
+
+public class HomePage extends HttpServlet{
+
+}

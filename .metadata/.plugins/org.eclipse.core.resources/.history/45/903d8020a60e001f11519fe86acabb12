@@ -1,0 +1,9 @@
+package com.pbl3.controller.customer;
+
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+
+@WebServlet(urlPatterns = {"/show-users"})
+public class SearchUser extends HttpServlet{
+
+}

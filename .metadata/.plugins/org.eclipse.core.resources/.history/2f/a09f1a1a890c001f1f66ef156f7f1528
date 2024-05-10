@@ -1,0 +1,14 @@
+package com.pbl3.model;
+
+public class Product {
+	private String productID;
+	private String productName;
+	private String Category;
+	private String productVariant;
+	private Short stringNumber;
+	private Short keyNumber;
+	private String Brand;
+	private String Price;
+	private int Quantity;
+	
+}

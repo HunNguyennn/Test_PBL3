@@ -1,0 +1,120 @@
+package com.pbl3.service;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import com.pbl3.model.User;
+
+public class AccountService extends BaseService {
+		public static ArrayList<User> getAll(){
+			ArrayList<User> users = new ArrayList<User>();
+			try {
+				Connection connection = getConnection();
+				Statement stmt = connection.createStatement();
+				String query = "select * from user";
+				ResultSet rs = stmt.executeQuery(query);
+				while(rs.next()) {
+					String userID = rs.getString("userID");
+					int roleID = rs.getInt("roleID");
+					String userName = rs.getString("userName");
+					String Password = rs.getString("Password"); 
+					String Name = rs.getString("Name"); 
+					String Address = rs.getString("Address");
+					String phoneNumber = rs.getString("phoneNumber"); 
+					Date dateOfBirth = rs.getDate("dateOfBirth");
+					
+					User user = new User(userID, roleID, userName, Password, Name, Address, phoneNumber, dateOfBirth);
+					users.add(user);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			return users;
+		}
+		
+		public static void addUser(User user) {
+			String sql = "INSERT user(userID,roleID,userName,Password,Name,Address,phoneNumber,dateOfBirth) VALUES (?,?,?,?,?,?,?,?)";
+			try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
+			}catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			try(Connection connection = DriverManager.getConnection(DB_URL,USER,PASS);
+					PreparedStatement pstmt = connection.prepareStatement(sql);
+			){
+				pstmt.setString(1, "test");
+				pstmt.setInt(2, 1);
+				pstmt.setString(3, user.getUserName());
+				pstmt.setString(4, "123");
+				pstmt.setString(5, user.getName());
+				pstmt.setString(6,user.getAddress());
+				pstmt.setString(7,user.getPhoneNumber());
+				pstmt.setDate(8, null);
+				pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} 
+		
+		public static void editUser(User user) {
+			String sql = "UPDATE user SET userName = ?, Name = ?, Address = ?, phoneNumber = ?, dateOfBirth =? WHERE userID = \""+ user.getUserID()+ "\"" ;
+			try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
+			}catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			try(Connection connection = DriverManager.getConnection(DB_URL,USER,PASS);
+					PreparedStatement pstmt = connection.prepareStatement(sql);
+			){
+				pstmt.setString(1, user.getUserName());
+				pstmt.setString(2, user.getName());
+				pstmt.setString(3,user.getAddress());
+				pstmt.setString(4,user.getPhoneNumber());
+				pstmt.setDate(5, user.getDateOfBirth());
+				pstmt.executeUpdate();
+				System.out.println("Cap nhat thanh cong!");
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		public static User searchUser(String user_id) {
+			User user = new User();
+			String sql = "SELECT * FROM user WHERE userID = \""+ user_id +"\"";
+			try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
+			}catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			
+			try(Connection connection = DriverManager.getConnection(DB_URL,USER,PASS);
+				Statement stmt = connection.createStatement();
+				ResultSet rs = stmt.executeQuery(sql);){
+				//extract data 
+				if(rs.next()) {
+					String userName = rs.getString("userName");
+					String name = rs.getString("Name");
+					String address = rs.getString("Address");
+					String phoneNumber = rs.getString("phoneNumber");
+					Date dateOfBirth = rs.getDate("dateOfBirth");
+					
+					user.setUserID(user_id);
+					user.setUserName(userName);
+					user.setName(name);
+					user.setAddress(address);
+					user.setPhoneNumber(phoneNumber);
+					user.setDateOfBirth(dateOfBirth);
+				}				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return user;
+		}
+}

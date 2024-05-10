@@ -1,0 +1,9 @@
+package com.pbl3.model;
+
+public class ReceiptDetail {
+	private String receiptDetailID;
+	private String receiptID;
+	private String productID;
+	private int Quantity;
+	
+}

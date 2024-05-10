@@ -1,0 +1,14 @@
+package com.pbl3.model;
+
+import java.sql.Date;
+
+public class User {
+	private String userID;
+	private int roleID;
+	private String userName;
+	private String Password; 
+	private String Name; 
+	private String Address;
+	private String phoneNumber; 
+	private Date dateOfBirth;
+}

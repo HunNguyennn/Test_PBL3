@@ -1,0 +1,8 @@
+package com.pbl3.service;
+
+public class ConnectionService {
+	static final String DB_URL = "jdbc:mysql://localhost/";
+	static final String USER = "root";
+	static final String PASS = "root";
+	
+}

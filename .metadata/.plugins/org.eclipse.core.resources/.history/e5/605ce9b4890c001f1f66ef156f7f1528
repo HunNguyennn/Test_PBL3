@@ -1,0 +1,9 @@
+package com.pbl3.model;
+
+import java.sql.Date;
+
+public class Receipt {
+	private String receiptID;
+	private double Cost;
+	private Date Date;
+}

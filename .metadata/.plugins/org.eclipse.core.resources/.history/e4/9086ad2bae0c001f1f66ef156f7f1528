@@ -1,0 +1,26 @@
+package com.pbl3.controller.customer;
+
+import java.util.ArrayList;
+
+import org.apache.catalina.User;
+
+import com.pbl3.service.AccountService;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class TestController {
+	
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		@Override
+		// TODO Auto-generated method stub
+		RequestDispatcher requestDispatcher = req.getRequestDispatcher(req.getContextPath() + "views/homepage.jsp");
+		ArrayList<User> users = AccountService.getAll();
+		for (User user : users) {
+			System.out.println(user.getUserID());
+		}
+		req.setAttribute("users", users);
+		requestDispatcher.forward(req, resp);
+	}
+}

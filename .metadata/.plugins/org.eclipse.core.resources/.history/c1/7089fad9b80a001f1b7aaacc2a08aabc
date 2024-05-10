@@ -1,0 +1,9 @@
+package niit.session;
+
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+
+@WebServlet(urlPatterns =  = {"/login"})
+public class Login extends HttpServlet {
+	
+}

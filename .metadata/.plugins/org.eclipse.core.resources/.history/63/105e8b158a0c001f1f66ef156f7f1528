@@ -1,0 +1,6 @@
+package com.pbl3.model;
+
+public class Role {
+	private int roleID;
+	private String roleName;
+}

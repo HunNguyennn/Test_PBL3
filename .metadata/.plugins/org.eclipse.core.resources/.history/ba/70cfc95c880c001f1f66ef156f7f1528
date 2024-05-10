@@ -1,0 +1,9 @@
+package com.pbl3.model;
+
+public class OrderDetail {
+	private String orderDetailID;
+	private String orderID;
+	private String productID;
+	private int Quantity;
+	
+}
